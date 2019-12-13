@@ -28,7 +28,6 @@ class WeatherViewController: UIViewController {
 
     
     @IBAction func changeTheme(_ sender : UIButton){
-        print("mad oh")
         weatherViewModel?.changeTheme()
     }
   
@@ -65,8 +64,12 @@ class WeatherViewController: UIViewController {
             }
             
             weatherViewModel.didChangeTheme = {[weak self] in
-                print(weatherViewModel.weatherImage)
-                 self?.weatherImage.image = UIImage(named : weatherViewModel.weatherImage)
+                UIView.transition(with: self!.weatherImage,
+                duration: 0.75,
+                options: .transitionCrossDissolve,
+                animations: { self?.weatherImage.image = UIImage(named : weatherViewModel.weatherImage) },
+                completion: nil)
+                 
             }
         }
         
