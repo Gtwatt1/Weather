@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController {
                     self?.weatherImage.image = UIImage(named : weatherViewModel.weatherImage)
                     let backgroundColor = UIColor.hexStringToUIColor(hex: weatherViewModel.backgroundColor)
                     self?.tableView.backgroundColor = backgroundColor
-                    self?.moreCurrentDayTemperatureDetailsLabel.addBackground(color : backgroundColor)
+        self?.moreCurrentDayTemperatureDetailsLabel.addBackground(color : backgroundColor)
                 }
                 
             }
