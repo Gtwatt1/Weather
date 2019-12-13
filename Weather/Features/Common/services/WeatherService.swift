@@ -7,17 +7,35 @@
 //
 
 import Foundation
+import CoreLocation
+
+protocol WeatherServiceProtocol {
+    func getCurrentDayWeather(lat : CLLocationDegrees, lng : CLLocationDegrees,   completion : @escaping (Result<Forecast, APIError>) -> () )
+    func getFivedaysWeather(lat : CLLocationDegrees, lng : CLLocationDegrees, completion : @escaping (Result<ForecastList, APIError>) -> ())
+}
 
 
-class WeatherService{
+class WeatherService : WeatherServiceProtocol{
+    func getCurrentDayWeather(lat: CLLocationDegrees, lng: CLLocationDegrees,  completion: @escaping (Result<Forecast, APIError>) -> ()) {
+        let url = String(format : URLConstants.getCurrentForcast, String(lat), String(lng))
+        Networker.shared.makeGetRequest(url : url){(result : Result<Forecast, APIError>) in
+            print(result)
+            completion(result)
+        }
+    }
     
-    func getCurrentWeather(){
+
+    
+    func getFivedaysWeather(lat: CLLocationDegrees, lng: CLLocationDegrees, completion: @escaping (Result< ForecastList, APIError>) -> ()) {
+        let url = String(format : URLConstants.getFiveDaysForecast, String(lat), String(lng))
+        Networker.shared.makeGetRequest(url : url ){(result : Result<ForecastList, APIError>) in
+            completion(result)
+        }
         
     }
     
-    func get5dayForecast(){
-        
-        
-    }
+    
+    
+    
     
 }

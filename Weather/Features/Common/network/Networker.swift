@@ -8,17 +8,37 @@
 
 import Foundation
 
-class NetworkHelper{
-    
-    func makeGetRequest(urlString : String){
+class Networker{
+
+    static var shared = Networker()
+
+    func makeGetRequest<T: Decodable>(url : String, completion : @escaping (Result<T,APIError>) -> ()){
+        guard let url  = URL(string: url) else{
+            completion(.failure(.badURL))
+            return
+        }
         
-        let session = URLSession.shared
-        guard let url = URL(string: urlString) else { return  }
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.requestFailed))
+                return
+            }
+            if httpResponse.statusCode == 200 {
+                if let data = data {
+                    do {
+                        let genericModel = try JSONDecoder().decode(T.self, from: data)
+                        completion(.success(genericModel))
+                    } catch {
+                        completion(.failure(.jsonConversionFailure))
+                    }
+                } else {
+                    completion(.failure(.invalidData))
+                }
+            } else {
+                completion(.failure(.responseUnsuccessful))
+            }
         }
         task.resume()
-        
     }
 }
-

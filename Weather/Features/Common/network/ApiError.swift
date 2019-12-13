@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+
+enum APIError: Error{
+    case badURL, requestFailed, jsonConversionFailure, invalidData, responseUnsuccessful
+}

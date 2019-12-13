@@ -24,8 +24,11 @@ class LocationService : NSObject{
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
         }
+    }
+    
+    func startLocationRequest(){
+        locationManager.startUpdatingLocation()
     }
 }
 
