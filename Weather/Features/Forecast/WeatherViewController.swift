@@ -52,6 +52,9 @@ class WeatherViewController: UIViewController {
                     let backgroundColor = UIColor.hexStringToUIColor(hex: weatherViewModel.backgroundColor)
                     self?.tableView.backgroundColor = backgroundColor
         self?.moreCurrentDayTemperatureDetailsLabel.addBackground(color : backgroundColor)
+                    self?.temperatureLabel.fadeIn()
+                    self?.weatherDescriptionLabel.fadeIn()
+                    self?.cityLabel.fadeIn()
                 }
                 
             }
