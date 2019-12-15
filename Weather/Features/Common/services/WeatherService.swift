@@ -19,7 +19,6 @@ class WeatherService : WeatherServiceProtocol{
     func getCurrentDayWeather(lat: CLLocationDegrees, lng: CLLocationDegrees,  completion: @escaping (Result<Forecast, APIError>) -> ()) {
         let url = String(format : URLConstants.getCurrentForcast, String(lat), String(lng))
         Networker.shared.makeGetRequest(url : url){(result : Result<Forecast, APIError>) in
-            print(result)
             completion(result)
         }
     }

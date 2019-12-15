@@ -14,21 +14,23 @@ struct WeatherCellViewModel{
     var weatherImage = ""
     var temperature : String
     var day = ""
+    let forecast : Forecast
     
     init(forecast : Forecast) {
-        temperature = "\(forecast.main?.temp ?? 0)º"
-        weatherImage = getWeatherType(weatherMain: forecast.weather?[0].main ?? "")
-        day = getDayOfTheWeek(unixTime: forecast.dt ?? 0)
+        self.forecast = forecast
+        temperature = "\(Int(forecast.main?.temp?.rounded() ?? 0.0) )º"
+        weatherImage = getWeatherType()
+        day = getDayOfTheWeek( )
     }
     
     
-    func getDayOfTheWeek(unixTime : Int) -> String{
-        let date = Date(timeIntervalSince1970: TimeInterval(unixTime))
+    func getDayOfTheWeek() -> String{
+        let date = Date(timeIntervalSince1970: TimeInterval(forecast.dt ?? 0))
         return date.dayOfWeek()
     }
     
-    func getWeatherType(weatherMain : String) -> String{
-        switch weatherMain {
+    func getWeatherType() -> String{
+        switch (forecast.weather?[0].main ?? "").lowercased() {
         case "rain", "thunderstorm", "drizzle", "snow", "mist":
             return "rain"
         case let str where str.contains("cloud") :

@@ -71,6 +71,15 @@ class WeatherViewController: UIViewController {
                 completion: nil)
                  
             }
+            
+            weatherViewModel.didUpdateWithError = { [weak self] in
+                DispatchQueue.main.async{
+                    if self?.presentedViewController == nil{
+                        self?.showAlert(withTitle : "Weather", withMessage : weatherViewModel.error)
+                    }
+                }
+                
+            }
         }
         
         

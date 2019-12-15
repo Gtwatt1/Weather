@@ -19,7 +19,11 @@ class WeatherViewModel{
     
     var currentDayForecast : Forecast?
     var fiveDayForecast : [WeatherCellViewModel]?
-    var error = ""
+    var error = ""{
+        didSet{
+            didUpdateWithError?()
+        }
+    }
     var didUpdateCurrentForecast : (() -> ())?
     var didUpdateFiveDaysForecast : (() -> ())?
     var didUpdateWithError : (() -> ())?
@@ -103,7 +107,7 @@ extension WeatherViewModel : LocationServiceDelegate{
                     }
                     self?.didUpdateCurrentForecast?()
                 case .failure(let error) :
-                print("")
+                    self?.error = error.localizedDescription
 
             }
             
@@ -113,7 +117,7 @@ extension WeatherViewModel : LocationServiceDelegate{
             switch result{
                 case .success(let forecasts) :
                     let forecastsAtMidday = forecasts.list.filter { (forecast) -> Bool in
-                    (forecast.dateString?.contains("12:00:00") ?? false)
+                    (forecast.dateString?.contains("06:00:00") ?? false)
                 }
                  self?.fiveDayForecast?.removeAll()
                  forecastsAtMidday.forEach { (forecast) in
@@ -122,7 +126,7 @@ extension WeatherViewModel : LocationServiceDelegate{
                 }
                     self?.didUpdateFiveDaysForecast?()
                 case .failure(let error) :
-                print("")
+                    self?.error = error.localizedDescription
 
             }
         }

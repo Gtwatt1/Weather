@@ -17,7 +17,7 @@ class Networker{
             completion(.failure(.badURL))
             return
         }
-        
+        print(url)
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard let httpResponse = response as? HTTPURLResponse else {
