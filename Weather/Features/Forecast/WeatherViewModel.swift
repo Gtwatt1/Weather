@@ -29,7 +29,7 @@ class WeatherViewModel{
     var didUpdateWithError : (() -> ())?
     var didChangeTheme : (() -> ())?
 
-    fileprivate func setBackgroundView() {
+     func setBackgroundView() {
         switch weatherType {
         case .cloudy:
             weatherImage = theme == Theme.forest ? "forest_cloudy" : "sea_cloudy"

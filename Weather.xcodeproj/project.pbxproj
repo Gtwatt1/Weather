@@ -32,6 +32,7 @@
 		8FBED0D823A6140300C132D9 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0D723A6140300C132D9 /* WeatherTests.swift */; };
 		8FBED0E023A6145100C132D9 /* WeatherCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0DF23A6145100C132D9 /* WeatherCellViewModelTest.swift */; };
 		8FBED0E223A6E4C500C132D9 /* NetworkerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0E123A6E4C500C132D9 /* NetworkerTest.swift */; };
+		8FBED0E423A6E90100C132D9 /* WeatherViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0E323A6E90100C132D9 /* WeatherViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		8FBED0D923A6140300C132D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FBED0DF23A6145100C132D9 /* WeatherCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellViewModelTest.swift; sourceTree = "<group>"; };
 		8FBED0E123A6E4C500C132D9 /* NetworkerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkerTest.swift; sourceTree = "<group>"; };
+		8FBED0E323A6E90100C132D9 /* WeatherViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				8FBED0D923A6140300C132D9 /* Info.plist */,
 				8FBED0DF23A6145100C132D9 /* WeatherCellViewModelTest.swift */,
 				8FBED0E123A6E4C500C132D9 /* NetworkerTest.swift */,
+				8FBED0E323A6E90100C132D9 /* WeatherViewModelTest.swift */,
 			);
 			path = WeatherTests;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBED0D823A6140300C132D9 /* WeatherTests.swift in Sources */,
+				8FBED0E423A6E90100C132D9 /* WeatherViewModelTest.swift in Sources */,
 				8FBED0E023A6145100C132D9 /* WeatherCellViewModelTest.swift in Sources */,
 				8FBED0E223A6E4C500C132D9 /* NetworkerTest.swift in Sources */,
 			);
