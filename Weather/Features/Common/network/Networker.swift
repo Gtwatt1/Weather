@@ -12,13 +12,13 @@ class Networker{
 
     static var shared = Networker()
 
-    func makeGetRequest<T: Decodable>(url : String, completion : @escaping (Result<T,APIError>) -> ()){
+    func makeGetRequest<T: Decodable>(session : URLSession = URLSession.shared, url : String, completion : @escaping (Result<T,APIError>) -> ()){
         guard let url  = URL(string: url) else{
             completion(.failure(.badURL))
             return
         }
         print(url)
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, response, error) in
             
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.requestFailed))
