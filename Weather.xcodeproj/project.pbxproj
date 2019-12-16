@@ -118,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				8F90784523A12DDF00CA37B9 /* Features */,
-				8F90784423A12DD500CA37B9 /* Common */,
 				8F90783023A0D12400CA37B9 /* AppDelegate.swift */,
 				8F90783223A0D12400CA37B9 /* SceneDelegate.swift */,
 				8F90783623A0D12400CA37B9 /* Main.storyboard */,
@@ -127,13 +126,6 @@
 				8F90783E23A0D12600CA37B9 /* Info.plist */,
 			);
 			path = Weather;
-			sourceTree = "<group>";
-		};
-		8F90784423A12DD500CA37B9 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		8F90784523A12DDF00CA37B9 /* Features */ = {

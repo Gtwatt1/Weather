@@ -31,7 +31,7 @@ extension WeatherDataSource : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
-        print(weatherViewModel.fiveDayForecast?[indexPath.row])
+//        print(weatherViewModel.fiveDayForecast?[indexPath.row])
         cell.forecastVM = weatherViewModel.fiveDayForecast?[indexPath.row]
         return cell
     }

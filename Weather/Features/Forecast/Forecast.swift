@@ -58,3 +58,8 @@ enum WeatherType{
 struct ForecastList : Codable{
     var list : [Forecast]
 }
+
+enum Theme : String {
+    case forest
+    case sea
+}
