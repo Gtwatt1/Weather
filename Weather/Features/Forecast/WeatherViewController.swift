@@ -64,11 +64,13 @@ class WeatherViewController: UIViewController {
             }
             
             weatherViewModel.didChangeTheme = {[weak self] in
-                UIView.transition(with: self!.weatherImage,
-                duration: 0.75,
-                options: .transitionCrossDissolve,
-                animations: { self?.weatherImage.image = UIImage(named : weatherViewModel.weatherImage) },
-                completion: nil)
+                if let weatherImage = self?.weatherImage{
+                    UIView.transition(with: weatherImage,
+                    duration: 0.75,
+                    options: .transitionCrossDissolve,
+                    animations: { self?.weatherImage.image = UIImage(named : weatherViewModel.weatherImage) },
+                    completion: nil)
+                }
                  
             }
             
