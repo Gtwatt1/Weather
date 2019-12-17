@@ -14,15 +14,17 @@ class WeatherCell : UITableViewCell{
     @IBOutlet weak var weatherTypeImage : UIImageView!
     @IBOutlet weak var currentTempLabel : UILabel!
 
-    var forecastVM : WeatherCellViewModel?{
-        didSet{
-            if let forecastVM = forecastVM{
-                currentTempLabel.text = forecastVM.temperature
-                dayLabel.text = forecastVM.day
-                weatherTypeImage.image = UIImage(named : forecastVM.weatherImage)
-            }
-            
+    var forecastVM : WeatherCellViewModel?
+    
+    override func layoutSubviews() {
+        if let forecastVM = forecastVM{
+            currentTempLabel.text = forecastVM.temperature
+            dayLabel.text = forecastVM.day
+            weatherTypeImage.image = UIImage(named : forecastVM.weatherImage)
         }
+        
     }
+    
+    
     
 }

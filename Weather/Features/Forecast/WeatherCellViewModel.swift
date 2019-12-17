@@ -15,12 +15,14 @@ struct WeatherCellViewModel{
     var temperature : String
     var day = ""
     let forecast : Forecast
+    var setWeatherCellModel : (() -> ())?
     
     init(forecast : Forecast) {
         self.forecast = forecast
         temperature = "\(Int(forecast.main?.temp?.rounded() ?? 0.0) )º"
         weatherImage = getWeatherType()
-        day = getDayOfTheWeek( )
+        day = getDayOfTheWeek()
+        setWeatherCellModel?()
     }
     
     
