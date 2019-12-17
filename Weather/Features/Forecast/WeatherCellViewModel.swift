@@ -32,11 +32,11 @@ struct WeatherCellViewModel{
     func getWeatherType() -> String{
         switch (forecast.weather?[0].main ?? "").lowercased() {
         case "rain", "thunderstorm", "drizzle", "snow", "mist":
-            return "rain"
+            return WeatherType.rainy.rawValue
         case let str where str.contains("cloud") :
-            return "clear"
+            return WeatherType.cloudy.rawValue
         default:
-            return "partlysunny"
+            return WeatherType.sunny.rawValue
         }
     }
     
